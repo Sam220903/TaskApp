@@ -1,0 +1,17 @@
+{
+  "name": "apptareas",
+  "version": "1.0.0",
+  "description": "Aplicación interactiva para gestión de tareas (to-do)",
+  "main": "index.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "type": "module",
+  "author": "Samuel Pérez Guarneros",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.0.0",
+    "uuid": "^11.1.0"
+  }
+}
