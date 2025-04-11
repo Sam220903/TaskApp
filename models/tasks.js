@@ -69,6 +69,20 @@ export class Tasks{
             delete this.list[id];
         }
     }
+
+    changeTasks = (ids = []) => {
+        ids.forEach( (id) => {
+            const task = this.list[id];
+            if(!task.completed){
+                task.completed = new Date().toISOString();
+            }
+        });
+        this.listArray.forEach((task) => {
+            if(!ids.includes(task.id)) {
+                this.list[task.id].completed = null
+            }
+        });
+    }
      
 }
 

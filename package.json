@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "node app.js"
-  },
+  },  
   "type": "module",
+  "keywords": [
+    "NodeJS",
+    "JavaScript"
+  ],
   "author": "Samuel Pérez Guarneros",
   "license": "ISC",
   "dependencies": {

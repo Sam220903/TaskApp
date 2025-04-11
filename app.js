@@ -1,4 +1,4 @@
-import { getInput, inquirerMenu, pause, getTasksToDelete, confirm }  from './js/inquirer.js';
+import { getInput, inquirerMenu, pause, getTasksToDelete, confirm, selectList }  from './js/inquirer.js';
 import { Tasks } from './models/tasks.js'
 import { saveDB, loadDB } from './js/saveDB.js';
 import { Task  } from './models/task.js';
@@ -27,9 +27,14 @@ const main = async() => {
         
         case 3:
             tasks.printByStatus(true); break;
-
+            
         case 4: 
             tasks.printByStatus(false); break;
+
+        case 5: 
+            const completed = await selectList(tasks.listArray);
+            tasks.changeTasks(completed);
+            break;
 
         case 6: 
             const id = await getTasksToDelete(tasks.listArray);
@@ -38,7 +43,6 @@ const main = async() => {
                 tasks.deleteTask(id)
                 console.log('Tarea borrada exitosamente'.green);
             }
-            
             break;
 
         default:

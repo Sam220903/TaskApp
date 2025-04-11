@@ -101,6 +101,23 @@ const confirm = async(message) => {
   return ok;
 }
 
-export { inquirerMenu, pause, getInput, getTasksToDelete, confirm };
+const selectList = async (list) => {
+  const choices = list.map((task) => {
+    return {
+      value : task.id,
+      name : task.description,
+      checked : (task.completed) ? true : false
+    }
+  });
+  const response = await inquirer.prompt([{
+    type : 'checkbox',
+    name : 'resp', 
+    message : 'Marque las tareas completadas: ',
+    choices
+  }]);
+  return response.response;
+}
+
+export { inquirerMenu, pause, getInput, getTasksToDelete, confirm, selectList };
 
 
